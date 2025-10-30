@@ -109,14 +109,14 @@ async function main() {
       id = req.params.id;
       try {
          chicken = await Chicken.findById(id);
-         if(chicken){
+         if(chicken) {
             res.render("chicken", chicken);
          } else {
-            res.status(404).send("No chicken with id: " +id);
+            res.status(404).send("Ain't no chicken with id: "+id);
          }
-      }catch (err){
+      } catch (err) {
          console.error(err);
-         res.status(500).send("Something went wrong with the server");
+         res.status(500).send("Something went wrong with the server. OOPS!");
       }
       
    });
