@@ -98,13 +98,14 @@ async function main() {
    });
 
    app.get("/api/chickens/", async function(req,res) {
-      chickens = await Chicken.find();
+      chickens = await getChickens();
       res.send(chickens);
    });
 
    
    app.get("/", async function(req, res) {
-      chickens = await Chicken.find();
+      chickens = await getChickens();
+      //chickens = [];
       res.render("index", chickens);
    });
 
@@ -125,7 +126,7 @@ async function main() {
    });
 
    app.get("/chickens/", async function(req, res) {
-      chickens = await Chicken.find();
+      chickens = await getChickens();
       res.render("chickens", chickens);
    });
 
@@ -135,5 +136,20 @@ async function main() {
 
 
 
+
+
+
+   function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+
+   async function getChickens() {
+      console.log('Starting sleep...');
+      await sleep(2000); // Pause for 2 seconds
+      console.log('Awake now!');
+      return await Chicken.find();
+   }
    app.listen(3000, function(){console.log("Listening on port 3000...")})
 }
+
+
