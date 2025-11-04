@@ -3,6 +3,24 @@ h1 {
 }
 .chickens {
     display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadingIcon {
+  background-color: gold;
+  width: 50px;
+  display: flex;
+  align-content: center;
+}
+
+.dance {
+  animation: dance 2s linear infinite;
+}
+
+@keyframes dance {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }
 
 .chicken {
